@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DEVELOPERS</title>
+    <style>
+        body {
+            background-color: #B6E2D3;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .navbar {
+            background-color: #EF7C8E;
+            display: flex;
+            justify-content: center;
+        }
+
+        .navbar a {
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 17px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .navbar a:hover {
+            background-color: #F79489;
+            color: #FAE8E0;
+        }
+        .developer-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .developer {
+            text-align: center;
+        }
+
+        .developer img {
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            border: 10px solid #EF7C8E;
+        }
+
+        .description {
+            border-top: 5px solid #F79489;
+            border-bottom: 5px solid #F79489;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        .developer-border {
+            border: 5px solid #F79489;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        .developer-border ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .developer-border ul li {
+            margin-bottom: 10px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .overall-border,
+        .additional-border {
+            border: 5px solid #D8A7B1;
+            padding: 10px;
+            width: calc(50% - 15px); 
+            box-sizing: border-box; 
+        }
+
+        .overall-border ul,
+        .additional-border ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .overall-border ul li,
+        .additional-border ul li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="game.html">Game</a>
+        <a href="developers.html">Developers</a>
+    </div>
+
+    <div class="developer-container">
+        <div class="developer">
+            <img src="abby.jpg" alt="Developer 1">
+            <div class="description">
+                <p>Arvrisse Claire A. Cuevas</p>
+            </div>
+            <div class="developer-border">
+                <ul>
+                    <li>Code</li>
+                </ul>
+            </div>
+        </div>
+        <div class="developer">
+            <img src="rai.jpg" alt="Developer 2">
+            <div class="description">
+                <p>Raina Rayelle S. Bautista</p>
+            </div>
+            <div class="developer-border">
+                <ul>
+                    <li>Code and Game Idea</li>
+                </ul>
+            </div>
+        </div>
+        <div class="developer">
+            <img src="lara.jpg" alt="Developer 3">
+            <div class="description">
+                <p>Annika Miel Lara A. Fabia</p>
+            </div>
+            <div class="developer-border">
+                <ul>
+                    <li>Graphic Design</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="overall-border">
+            <h2>Tips and Tricks</h2>
+            <ul>
+                <li>Choose the best response.</li>
+                <li>Don't try to answer sarcastically.</li>
+                <li>Read each option carefully.</li>
+                <li>Choose your side to defend carefully.</li>
+                <li>Enjoy!</li>
+            </ul>
+        </div>
+        <div class="additional-border">
+            <h2>Game Inspiration</h2>
+            <p>The game is inspired by the previous game "DahlBate" of one of the developers, Raina Rayelle S. Bautista. DalhBate is a C++ game of 8-Dahlia. If Trash Talk talks about having a trash can in Arayat Classroom, DalhBate is about how Raina's previous section, Dahlia, debates if there's a formative assessment or not. After brainstorming for a game, DalhBate came to Raina's mind, and the developers decided to innovate and improve this game with CSS, HTML, and JavaScript.</p>
+        </div>
+    </div>
+</body>
+</html>

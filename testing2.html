@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>no</title>
+<style>
+ @font-face {
+  font-family: font;
+  src: url(W95FA.otf);
+}
+@font-face {
+  font-family: font2;
+  src: url(SHPinscher-Regular.otf);
+}
+ 
+ body {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #B6E2D3;
+  }
+  
+  .box {
+    display: none;
+    width:1470px;
+    height: 250px;
+    background-color: #B6E2D3;
+    margin: 20px;
+    position: fixed; 
+    bottom: 0; 
+    left: 0; 
+    z-index: 1;
+    border-radius: 10px;
+  }
+  .box2 {
+    display: none;
+    
+  
+    z-index: 2;
+  }
+  .box5 {
+    display: none;
+    
+  
+    z-index: 2;
+  }
+  .box2, .box5, .box8, .box13, .box16, .box19, .box20, .box23, .box26, .box29, .box32{
+    display: none;
+    
+  
+    z-index: 2;
+  }
+  .box3 {
+    
+    width:300px;
+    height: 160px;
+    background-color: #EF7C8E;
+    font-family: font;
+    font-size: 1.8em;
+    font-weight: 900;
+    text-align: center;
+    margin-left: 20px;
+    position: absolute; 
+    bottom: 50px; 
+    right:10px;
+    z-index: 8;
+    position: absolute;
+    bottom: 30%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    border-radius: 20px;
+  }
+  .box4 {
+    
+    width:300px;
+    height: 160px;
+    background-color: #EF7C8E;
+    font-size: 1.8em;
+    font-family: font;
+    font-weight: 900;
+    text-align: center;
+    margin-left: 20px;
+    position: absolute; 
+    bottom: 50px; 
+    right: 69px;
+    z-index: 8;
+    position: absolute;
+    bottom: 30%;
+    left: 20%;
+    transform: translate(-0%, -50%);
+    cursor: pointer;
+    border-radius: 20px;
+  }
+
+  #animate { 
+    display: none; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100vw; 
+    height: 100vh; 
+    background-color: rgba(0, 0, 0, 0); 
+    z-index: 5;
+  }
+
+  @keyframes blink {
+    0% { background: rgba(0,0,0,0.9); }
+    50% { background: rgba(0,0,0,0.5); }
+ 
+    100% { background: rgba(0,0,0,0.1); }
+  }
+
+  #animate {
+    animation-direction: normal;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-name: blink;
+    animation-timing-function: ease;       
+}
+
+.wrapper {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.typing-demo {
+  width: 92ch;
+  white-space: nowrap;
+  overflow: hidden;
+  font-weight: 600;
+  font-family: font;
+  font-size: 2em;
+  z-index:  2;
+  position: relative; 
+  animation-name: blink1;
+}
+
+@keyframes typing {
+  from {
+    width: 0
+  }
+}
+    
+@keyframes blink1 {
+  50% {
+    border-color: transparent
+  }
+}
+
+.p12 {
+  position: absolute;
+  right: 70px; 
+  bottom: 20px; 
+  z-index: 6;
+  display: none; 
+  opacity: 80%;
+  cursor: pointer;
+  
+}
+.timer{
+    display:none;
+    position: fixed;
+     right: 550px; 
+  top: 60px; 
+  transform: translate(-50%, -50%);
+  color: aliceblue;
+  font-family: font2;
+  font-size: 2em;
+}
+.health-container{
+  position: fixed;
+     right:620px; 
+  top: 90px; 
+  transform: translate(-50%, -50%);
+  color: aliceblue;
+  font-family: font2;
+  font-size: 2em;
+
+}
+.myImg{
+  display: none;
+  position: fixed;
+     right: 0%; 
+  bottom: 5%;
+}
+.myImg2{
+  display: none;
+  position: fixed;
+     left: 2%; 
+  bottom: 2%;
+}
+.submit{
+  padding: 15px; 
+            width: 150px; 
+            margin-bottom: 30px; 
+            border-radius: 10px;
+            background-color: #EF7C8E;
+            border: 5px solid #F79489;
+            font-size: 18px;
+            cursor: pointer;
+            display: block;
+            font-family: 'Courier New', Courier, monospace;
+            z-index: 5;
+            position: fixed;
+              right: 45%; 
+         top:30%;
+}   
+
+.continue{
+  padding: 15px; 
+            width: 200px; 
+            margin-bottom: 30px; 
+            border-radius: 10px;
+            background-color: #EF7C8E;
+            border: 5px solid #F79489;
+            font-size: 18px;
+            cursor: pointer;
+            display: block;
+            font-family: 'Courier New', Courier, monospace;
+            z-index: 5;
+            position: fixed;
+     right: 43.5%; 
+  top: 40%;
+}
+.textbox{
+  display:flex;
+            justify-content: center;
+            position: relative; 
+       
+}
+.thing{
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  text-align: center;
+  font-size: 1.5em;
+  color:#EF7C8E;
+}
+
+</style>
+</head>
+<body>
+
+<div id="container"></div>
+<div id="animate"></div>
+<img alt="" id="myImg" class="myImg" src="dos.png" width="500" height="700">
+<img alt="" id="myImg2" class="myImg2" src="josh.png" width="450" height="700">
+<div class="box" id="box1">
+    <div class="typing-demo">
+        <p>&nbsp; One peaceful morning in Arayat, class officers asked the class if they wanted a trash can in the classroom.</p> 
+    </div>
+    <div class="typing-demo">
+       <p> &nbsp; Little did they know that this would later turn into a chaotic argument called trash talk.</p>
+    </div>
+    
+</div>
+<h5 class="p12" onclick="pressTo()" id="button1"><i>Press (this) to continue</i></h5>
+<div class="box2" id="box2">
+    <div class="box3"  onclick="chooseDos()"><p> Dos</p> <p>(Defend having trashcan) </p> </div>
+    <div class="box4" onclick="chooseJosh()"><p> Josh </p>  <p> (Defend having no trashcan) </p> </div>
+</div>
+<div class="box5" id="box5">
+    <div class="box3"  onclick="secondThing()" id="choice1"><p> Mas maganda if may trash can para less kalat.</p> </div>
+    <div class="box4" onclick="secondThing()" id="choice2"><p> P'wede rin namang magtapon sa basurahan. </p> </div>
+</div>
+<div class="box8" id="box8">
+  <div class="box3"  onclick="thirdThing()" id="choice3"><p> May pera naman si Gian HAHAHAHAHA.</p> </div>
+  <div class="box4" onclick="thirdThing()" id="choice4"><p> Mura na lang siya if magsha-share tayo. </p> </div>
+</div>
+
+<div class="box13" id="box13">
+  <div class="box3"  onclick="fourthThing()" id="choice5"><p> Masisira lang tapos papalitan lang ulit, trash can na lang. </p> </div>
+  <div class="box4" onclick="fourthThing()" id="choice6"><p>Mas maganda kung merong trash can. </p> </div>
+</div>
+<div class="box16" id="box16">
+  <div class="box3"  onclick="fifthThing()" id="choice7"><p> ‘Di maiistorbo ‘yong teachers if nasa loob na ‘yong basurahan.</p> </div>
+  <div class="box4" onclick="fifthThing()" id="choice8"><p>Mas malapit if nasa loob ‘yong trash can.</p> </div>
+</div>
+<div class="box19" id="box19">
+  <div class="box3"  onclick="winningScreen()" id="choice9"><p> Hindi naman na last year ngayon. </p> </div>
+  <div class="box4" onclick="winningScreen()" id="choice10"><p> Iba naman ngayon, maganda pa rin if may basurahan para malinis. </p> </div>
+</div>
+<div class="box20" id="box20">
+  <div class="box3"  onclick="secondFunction()" id="choice11"><p> Ang lapit lang ng basurahan eh. </p> </div>
+  <div class="box4" onclick="secondFunction()" id="choice12"><p> ‘Wag na lang magtapon. </p> </div>
+</div>
+<div class="box23" id="box23">
+  <div class="box3"  onclick="thirdFunction()" id="choice13"><p> Ewan, mahal ata ‘yon? </p> </div>
+  <div class="box4" onclick="thirdFunction()" id="choice14"><p>  P’wede nating gamitin ‘yong funds para sa pantry. </p> </div>
+</div>
+
+<div class="box26" id="box26">
+  <div class="box3"  onclick="fourthFunction()" id="choice15"><p> Edi i-keep na lang muna sa bag ‘yong trash. </p> </div>
+  <div class="box4" onclick="fourthFunction()" id="choice16"><p> Wala naman silang pake.  </p> </div>
+</div>
+
+<div class="box29" id="box29">
+  <div class="box3"  onclick="fifthFunction()" id="choice17"><p> Kaya pa rin naman nating maging malinis kahit walang basurahan. </p> </div>
+  <div class="box4" onclick="fifthFunction()" id="choice18"><p> Hindi naman tayo marumi. </p> </div>
+</div>
+<div class="box32" id="box32">
+  <div class="box3"  onclick="deadFunction()" id="choice19"><p>  At least ‘di na kailangang magtapon sa labas after the day. </p> </div>
+  <div class="box4" onclick="deadFunction()" id="choice20"><p> Ano naman kung lalabas? </p> </div>
+</div>
+
+
+
+
+
+<div id="formContainer">
+
+    <p class="thing">Welcome, player!</p>
+    <p class="thing">Please enter your name to proceed to the game.</p>
+    <form class="textbox" id="form1" action="#" onsubmit="return submitName()">
+      <input  type="text" name="text1" pattern="[A-Za-z]+" id="nameInput">
+      <input type="submit" name="submit" class= "submit" value="Submit">
+      
+    </form>
+
+</div>
+
+<div id="continueButtonContainer">
+  <button id="continueButton" class="continue" style="display: none;" onclick="continueButton()">Continue?</button>
+</div>
+<div id="countdown" class="timer"></div>
+<div class="health-container">
+    <div id="healthDisplay"></div>
+  </div>
+    
+
+<script>
+  function continueButton() {
+    var formContainer = document.getElementById('formContainer');
+    formContainer.style.display = 'none'; 
+    
+    var container = document.getElementById('container');
+    var continueButtonContainer = document.getElementById('continueButtonContainer');
+    var animateDiv = document.getElementById('animate');
+    var box1 = document.getElementById('box1');
+    var box2 = document.getElementById('box2');
+    var box5 = document.getElementById('box5');
+    var box8 = document.getElementById('box8');
+    var box13 = document.getElementById('box13');
+    var box16 = document.getElementById('box16');
+    var box19 = document.getElementById('box19');
+    var box20 = document.getElementById('box20');
+    var box23 = document.getElementById('box23');
+    var box26 = document.getElementById('box26');
+    var box29 = document.getElementById('box29');
+    var box32 = document.getElementById('box32');
+    var myImg = document.getElementById("myImg");
+    var myImg2 = document.getElementById("myImg2");
+    var countdown = document.getElementById('countdown')
+
+    var button1 = document.getElementById('button1');
+    document.body.style.backgroundImage = "url('bg24.jpg')";
+    box1.style.display = 'block';
+  
+    container.innerHTML = '';
+    animateDiv.style.display = 'block';
+    continueButtonContainer.parentNode.removeChild(continueButtonContainer);
+    
+    var typingDemo = document.querySelectorAll('.typing-demo');
+    typingDemo.forEach(function(elem) {
+      elem.style.display = 'block';
+      elem.style.animation = 'typing 2s steps(92) forwards';
+    });
+    
+    button1.style.display = 'block';
+  }
+
+  function submitName() {
+  
+    var inputtxt = document.forms["form1"]["text1"].value;
+    var letters = /^[A-Z a-z]+$/;
+    if (inputtxt.match(letters)) {
+      document.getElementById('continueButton').style.display = 'inline-block'; 
+      return false; 
+    } else {
+      alert('Invalid');
+    }
+  }
+  
+  function countdownTimer() {
+  var timeleft = 90;
+  let name = document.forms["form1"]["text1"].value;
+
+  var countdown = document.getElementById("countdown");
+  var healthDisplay = document.getElementById("healthDisplay");
+  var downloadTimer = setInterval(function(){
+    let no = document.getElementsByClassName("box3");
+let no2 = document.getElementsByClassName("box4");
+    if (timeleft <= -1) {
+      clearInterval(downloadTimer);
+      document.getElementById('box1').innerHTML = "<div class='typing-demo' style='animation: typing 2s steps(50) forwards; width: 90ch;'>" + "<br>" + " &nbsp; &nbsp; Unfortunately, Sir sent a message that he won't be late anymore. &nbsp;" +"<br>"+ " &nbsp; &nbsp; You had to concede and won't be able to continue later since you have to study for a Math FA" + "<br>" + "&nbsp; &nbsp; <i> (You lose)</i>" + "</div>";
+      myImg.style.display = 'none';
+      myImg2.style.display = 'none';
+      for (let i = 0; i < no.length; i++) {
+    no[i].style.display = 'none';
+}
+for (let i = 0; i < no2.length; i++) {
+    no2[i].style.display = 'none';
+}
+    } 
+    else if (stopFunctionFlag) {
+           return;
+        }
+ 
+    else {
+      countdown.innerHTML = timeleft + " seconds remaining";
+    }
+    timeleft -= 1;
+  }, 1000);
+}
+
+
+
+  let clickCount = 0;
+  function pressTo(){
+    clickCount++;
+    let name = document.forms["form1"]["text1"].value;
+    if (clickCount === 1) {                                                
+    document.getElementById('box1').innerHTML = "<div class='typing-demo' style='animation: typing 2s steps(50) forwards; width: 90ch;'>" + "<br>" + "&nbsp; &nbsp; Class Officers:" + "&nbsp; Mamaya na lang ulit natin pag-usapan 'to, malapit na yung mag-start yung next subject."  + "</div>";
+    }
+else if (clickCount === 2) {
+       
+        document.getElementById('box1').innerHTML = "<div class='typing-demo' style='animation: typing 2s steps(50) forwards; width: 70ch;'>" + "<br>" + "&nbsp; &nbsp;" + name + ":" +" &nbsp; May oras pa naman tayo bago mag-Computer Science, ma-lalate daw si Sir."+ "</div>";
+    
+   
+  }
+  else if (clickCount === 3) {
+    document.getElementById('box1').innerHTML = "<div class='typing-demo' style='animation: typing 2s steps(50) forwards; width: 90ch;'>" + "<br>" + "&nbsp; &nbsp; Class Officers:" + "&nbsp; Okay, i-defend niyo ng maayos yung mga arguments ninyo, then mag-bobotohan tayo." + "<br>" + " &nbsp; &nbsp; Majority wins. " + "</div>";
+ 
+  
+  }
+  else if (clickCount === 4) {
+    document.getElementById('box1').innerHTML = "<div class='typing-demo' style='animation: typing 2s steps(50) forwards; width: 70ch;'>" + "<br>" + "&nbsp; &nbsp; Class Officers:" +  " &nbsp; Kanino ka ba makikipag-debate, &nbsp;" + name + "?"+ "</div>";
+  box2.style.display = 'block';
+  myImg.style.display = 'block';
+  myImg2.style.display = 'block';
+  document.getElementById('button1').style.display = 'none'; 
+  }
+
+}
+
+
+
+
+var health = 150;
+function chooseDos(){
+  myImg2.style.display = 'none';
+  countdown.style.display = 'block';
+  let name = document.forms["form1"]["text1"].value;
+
+   
+    countdownTimer()
+  secondThing();
+  checkHealth();
+}
+function secondThing(){
+  let yes = document.getElementById('choice1'); 
+    let yes2 = document.getElementById('choice2');
+    let name = document.forms["form1"]["text1"].value;
+    box5.style.display = 'block';
+    myImg.style.display = 'block';
+    
+    countdown.style.display = 'block';
+   
+
+    document.getElementById('box1').innerHTML = "<div class='typing-demo' style='animation: typing 2s steps(50) forwards; width: 70ch;'>" + "<br> "+ "&nbsp; &nbsp; Dos:"  + " Well, &nbsp;" +name+ "&nbsp; p'wede namang magtapon na lang tayo sa bag natin." + "</div>";
+    yes.addEventListener('click', function() { 
+       
+        healthDisplay.innerHTML = "Dos's Health: " + (health -= 29);
+     
+        thirdThing();
+    
+
+    });
+    yes2.addEventListener('click', function() { 
+        
+        healthDisplay.innerHTML = "Dos's Health: " + (health -= 14);
+     
+        thirdThing();
+     
+    
+    });
+}
+function thirdThing(){
+    let yes3 = document.getElementById('choice3'); 
+    let yes4 = document.getElementById('choice4'); 
+    
+    myImg.style.display = 'block';
+    box8.style.display = 'block';
+   
+    document.getElementById('box1').innerHTML = "<div class='typing-demo' style='animation: typing 2s steps(50) forwards; width: 70ch;'>" + "<br>" + "&nbsp; &nbsp; Dos:"  +  " &nbsp; Ang mahal-mahal ng trash can." + name + "</div>";
+    yes3.addEventListener('click', function() { 
+        
+        healthDisplay.innerHTML = "Dos's Health: " + (health -= 17);
+  
+       fourthThing();
+    });
+    yes4.addEventListener('click', function() { 
+     
+        healthDisplay.innerHTML = "Dos's Health: " + (health -= 35);
+        fourthThing();
+    });
+}
+function fourthThing(){
+    let yes5 = document.getElementById('choice5'); 
+    let yes6 = document.getElementById('choice6'); 
+    myImg.style.display = 'block';
+    box13.style.display = 'block';
+   
+    document.getElementById('box1').innerHTML = "<div class='typing-demo' style='animation: typing 2s steps(50) forwards; width: 70ch;'>" + "<br>" + "&nbsp; &nbsp; Dos:"  +  " &nbsp; Kumuha na lang tayo ng karton tapos gawin nating basurahan." + name + "</div>";
+    yes5.addEventListener('click', function() { 
+        healthDisplay.innerHTML = "Dos's Health: " + (health -= 32);
+        fifthThing();
+    });
+    yes6.addEventListener('click', function() { 
+        healthDisplay.innerHTML = "Dos's Health: " + (health -= 18);
+   
+        fifthThing();
+    });
+}
+let yes7Clicked = false;
+let yes8Clicked = false;
+function fifthThing(){
+    let yes7 = document.getElementById('choice7'); 
+    let yes8 = document.getElementById('choice8'); 
+    myImg.style.display = 'block';
+    box16.style.display = 'block';
+   
+    document.getElementById('box1').innerHTML = "<div class='typing-demo' style='animation: typing 2s steps(50) forwards; width: 70ch;'>" + "<br>" + "&nbsp; &nbsp; Dos:"  +  " &nbsp; Ang lapit lang ng main trash can, doon na lang tayo magtapon." + name + "</div>";
+    yes7.addEventListener('click', function() { 
+        healthDisplay.innerHTML = "Dos's Health: " + (health -= 31);
+        sixthThing();
+    });
+    yes8.addEventListener('click', function() { 
+        healthDisplay.innerHTML = "Dos's Health: " + (health -= 16);
+        sixthThing();
+    });
+}
+function sixthThing(){
+    let yes9 = document.getElementById('choice9');
+    let yes10 = document.getElementById('choice10'); 
+    box19.style.display = 'block';
+    myImg.style.display = 'block';
+   
+    document.getElementById('box1').innerHTML = "<div class='typing-demo' style='animation: typing 2s steps(50) forwards; width: 70ch;'>" + "<br>" + "&nbsp; &nbsp; Dos:"  +  " &nbsp; Wala naman kaming trash can last year pero okay lang naman." + name + "</div>";
+    yes9.addEventListener('click', function() { 
+        healthDisplay.innerHTML = "Dos's Health: " + (health -= 15);
+       
+     
+        checkHealth();
+        endHealth();
+        stopFunction();
+        return true;
+    
+ 
+    });
+    yes10.addEventListener('click', function() { 
+       
+        healthDisplay.innerHTML = "Dos's Health: " + (health -= 36);
+        checkHealth();
+        endHealth();
+        stopFunction();
+        return true;
+     
+    
+    
+    });
+}
+
+ 
+
+
+function chooseJosh(){
+  countdown.style.display = 'block';
+  
+  myImg.style.display = 'none';
+    countdownTimer()
+  secondFunction();
+  checkyHealth();
+}
+function secondFunction(){
+  let yes11 = document.getElementById('choice11'); 
+    let yes12 = document.getElementById('choice12');
+    myImg2.style.display = 'block';
+    box20.style.display = 'block';
+    countdown.style.display = 'block';
+    let name = document.forms["form1"]["text1"].value;
+
+    document.getElementById('box1').innerHTML = "<div class='typing-demo' style='animation: typing 2s steps(50) forwards; width: 70ch;'>" + "<br>" + "&nbsp;&nbsp; Josh:" + " &nbsp; Dapat may trash can tayo para convenient sa atin," + name +"." +"</div>";
+    yes11.addEventListener('click', function() { 
+        healthDisplay.innerHTML = "Josh's Health: " + (health -= 30);
+        thirdFunction();
+        checkyHealth();
+
+    });
+    yes12.addEventListener('click', function() { 
+        healthDisplay.innerHTML = "Josh's Health: " + (health -= 15);
+        checkyHealth();
+        thirdFunction();
+    
+    });
+}
+function thirdFunction(){
+    let yes13 = document.getElementById('choice13'); 
+    let yes14 = document.getElementById('choice14'); 
+    myImg2.style.display = 'block';
+    box23.style.display = 'block';
+   
+    document.getElementById('box1').innerHTML = "<div class='typing-demo' style='animation: typing 2s steps(50) forwards; width: 70ch;'>" + "<br>" + "&nbsp;&nbsp; Josh:" + " &nbsp; Meron naman tayong class funds, madaling bumili." +  "</div>";
+    yes13.addEventListener('click', function() { 
+        healthDisplay.innerHTML = "Josh's Health: " + (health -= 16);
+        checkyHealth();
+        fourthFunction();
+    });
+    yes14.addEventListener('click', function() { 
+        healthDisplay.innerHTML = "Josh's Health: " + (health -= 23);
+        checkyHealth();
+        fourthFunction();
+        
+    });
+}
+function fourthFunction(){
+    let yes15 = document.getElementById('choice15'); 
+    let yes16 = document.getElementById('choice16'); 
+    myImg2.style.display = 'block';
+    box26.style.display = 'block';
+   
+    document.getElementById('box1').innerHTML = "<div class='typing-demo' style='animation: typing 2s steps(50) forwards; width: 70ch;'>" + "<br>" + "&nbsp;&nbsp; Josh:" + " &nbsp; Naiistorbo ‘yong teachers kapag nagtatapon pa tayo sa labas." + "</div>";
+    yes15.addEventListener('click', function() {
+        healthDisplay.innerHTML = "Josh's Health: " + (health -= 27);
+        checkyHealth();
+        fifthFunction();
+     
+    });
+    yes16.addEventListener('click', function() { 
+        healthDisplay.innerHTML = "Josh's Health: " + (health -= 17);
+        checkyHealth();
+        fifthFunction();
+        
+    });
+}
+function fifthFunction(){
+    let yes17 = document.getElementById('choice17'); 
+    let yes18 = document.getElementById('choice18'); 
+    myImg2.style.display = 'block';
+    box29.style.display = 'block';
+   
+    document.getElementById('box1').innerHTML = "<div class='typing-demo' style='animation: typing 2s steps(50) forwards; width: 70ch;'>" + "<br>" + "&nbsp;&nbsp; Josh:" +  " &nbsp;Mas malinis ‘yong classroom kung may basurahan tayo." + "</div>";
+    yes17.addEventListener('click', function() { 
+        healthDisplay.innerHTML = "Josh's Health: " + (health -= 38);
+        checkyHealth();
+        sixthFunction();
+     
+    });
+    yes18.addEventListener('click', function() { 
+        healthDisplay.innerHTML = "Josh's Health: " + (health -= 18);
+        checkyHealth();
+        sixthFunction();
+        
+        
+    });
+}
+function sixthFunction(){
+    let yes19 = document.getElementById('choice19'); 
+    let yes20 = document.getElementById('choice20'); 
+
+    box32.style.display = 'block';
+   
+    document.getElementById('box1').innerHTML = "<div class='typing-demo' style='animation: typing 2s steps(50) forwards; width: 70ch;'>" + "<br>" + "&nbsp;&nbsp; Josh:" + " &nbsp;Hindi na natin kailangang lumabas-labas kapag may trash can sa room." +  "</div>";
+    yes19.addEventListener('click', function() { 
+        
+      healthDisplay.innerHTML = "Josh's Health: " + (health -= 32);
+        checkyHealth();
+        endyHealth()
+        stopFunction();
+        return true;
+     
+    });
+    yes20.addEventListener('click', function() { 
+        healthDisplay.innerHTML = "Josh's Health: " + (health -= 16);
+        
+      checkyHealth();
+        endyHealth();
+        stopFunction();
+        return true;
+    });
+}
+
+
+
+let stopFunctionFlag = false;
+
+function stopFunction() {
+ 
+  stopFunctionFlag = true;
+ 
+}
+
+
+
+
+function checkHealth () {
+  let name = document.forms["form1"]["text1"].value;
+  let no = document.getElementsByClassName("box3");
+let no2 = document.getElementsByClassName("box4");
+ if (health <=0){
+  
+  document.getElementById('box1').innerHTML = "<div class='typing-demo' style='animation: typing 2s steps(50) forwards; width: 70ch;'>"+  "<br>" + " &nbsp; &nbsp; Yay! You win, &nbsp;" + name + ":>" + "</div>";
+  document.getElementById("myImg").src = "losedos.png";
+  document.getElementById("myImg").style.width = "500px"; 
+document.getElementById("myImg").style.height = "700px";
+  for (let i = 0; i < no.length; i++) {
+    no[i].style.display = 'none';
+}
+for (let i = 0; i < no2.length; i++) {
+    no2[i].style.display = 'none';
+}
+}
+}
+
+function endHealth (){
+  let name = document.forms["form1"]["text1"].value;
+  let no = document.getElementsByClassName("box3");
+let no2 = document.getElementsByClassName("box4");
+  if (health > 0){
+    
+  document.getElementById('box1').innerHTML = "<div class='typing-demo' style='animation: typing 2s steps(50) forwards; width: 70ch;'>" +  "<br>" + "&nbsp; &nbsp; You lose :< , better luck next time &nbsp;" + name + "!" +"</div>";
+  document.getElementById("myImg").src = "windos.png";
+  document.getElementById("myImg").style.width = "480px"; 
+document.getElementById("myImg").style.height = "700px";
+  for (let i = 0; i < no.length; i++) {
+    no[i].style.display = 'none';
+}
+for (let i = 0; i < no2.length; i++) {
+    no2[i].style.display = 'none';
+}
+  }                          
+}
+
+function checkyHealth () {
+  let name = document.forms["form1"]["text1"].value;
+  let no = document.getElementsByClassName("box3");
+let no2 = document.getElementsByClassName("box4");
+ if (health <=0){
+  
+  document.getElementById('box1').innerHTML = "<div class='typing-demo' style='animation: typing 2s steps(50) forwards; width: 70ch;'>"+  "<br>" + " &nbsp; &nbsp; Yay! You win, &nbsp;" + name + ":D" + "</div>";
+  document.getElementById("myImg2").src = "losejosh.png";
+  document.getElementById("myImg2").style.width = "525px"; 
+document.getElementById("myImg2").style.height = "700px";
+  for (let i = 0; i < no.length; i++) {
+    no[i].style.display = 'none';
+}
+for (let i = 0; i < no2.length; i++) {
+    no2[i].style.display = 'none';
+}
+}
+}
+
+function endyHealth (){
+  let name = document.forms["form1"]["text1"].value;
+  let no = document.getElementsByClassName("box3");
+let no2 = document.getElementsByClassName("box4");
+  if (health > 0){
+    
+  document.getElementById('box1').innerHTML = "<div class='typing-demo' style='animation: typing 2s steps(50) forwards; width: 70ch;'>" +  "<br>" + "&nbsp; &nbsp; You lose :< , &nbsp;" + name + "!" +"</div>";
+  document.getElementById("myImg2").src = "winjosh.png";
+  document.getElementById("myImg2").style.width = "525px"; 
+document.getElementById("myImg2").style.height = "700px";
+  for (let i = 0; i < no.length; i++) {
+    no[i].style.display = 'none';
+}
+for (let i = 0; i < no2.length; i++) {
+    no2[i].style.display = 'none';
+}
+
+}                                 
+}
+
+
+</script>
+
+<!-- References: -->
+
+<!--
+ W3Schools online web tutorials. (n.d.). https://www.w3schools.com/ 
+How to use loop on js to let style.display = “none.” (n.d.). Stack Overflow. https://stackoverflow.com/questions/74106953/how-to-use-loop-on-js-to-let-style-display-none 
+CSS Typing Effect. (n.d.). Codepen.io. https://codepen.io/denic/pen/GRoOxbM
+How to remove the parent element using plain Javascript. (n.d.-b). Stack Overflow. https://stackoverflow.com/questions/2727717/how-to-remove-the-parent-element-using-plain-javascript
+Create a simple 10 second countdown. (n.d.). Stack Overflow. https://stackoverflow.com/questions/31106189/create-a-simple-10-second-countdown
+-->
+</body>
+</html>
